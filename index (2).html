@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- WhatsApp Link Preview Customization -->
+    <title>A very important question for Baba! ❤️</title>
+    <meta property="og:title" content="Open this, Baba! ✨">
+    <meta property="og:description" content="I made a small website for you. Please answer my question!">
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 340px;
+            width: 90%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+        /* iPhone 16 image styling */
+        .iphone-img {
+            width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 60px;
+            align-items: center;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            touch-action: none;
+        }
+        #yes-btn {
+            background-color: #2ecc71;
+            color: white;
+            z-index: 2;
+        }
+        #no-btn {
+            background-color: #e74c3c;
+            color: white;
+            transition: left 0.1s ease, top 0.1s ease;
+            z-index: 10;
+            position: static;
+        }
+        .success-message {
+            display: none;
+            color: #27ae60;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        /* Developer signature styling */
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            pointer-events: none;
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-card">
+        <!-- High-quality iPhone 16 Image asset integration -->
+        <img class="iphone-img" id="iphone-pic" src="https://pngimg.com" alt="iPhone 16">
+        <h1>Baba, will you buy me an iPhone 16? 📱✨</h1>
+        
+        <div class="buttons">
+            <button id="yes-btn" onclick="sayYes()">Yes!</button>
+            <button id="no-btn" onmouseover="moveNo()" ontouchstart="moveNo(event)" onclick="preventClick(event)">No</button>
+        </div>
+        <div id="success" class="success-message">Yay! Best Baba ever! ❤️🎉</div>
+    </div>
+
+    <!-- Live unblocked music synth system code below -->
+    <script>
+        let audioCtx = null;
+        let isCelebrating = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        document.addEventListener('touchstart', initAudio, { once: true });
+        document.addEventListener('click', initAudio, { once: true });
+
+        function moveNo(event) {
+            if (event) event.preventDefault();
+            initAudio();
+
+            const noBtn = document.getElementById('no-btn');
+            const padding = 20;
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding * 2) + padding;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding * 2) + padding;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function preventClick(event) {
+            event.preventDefault();
+            moveNo(event);
+        }
+
+        function playLongCelebrationTune() {
+            try {
+                initAudio();
+                let startTime = audioCtx.currentTime;
+                
+                const melody = [
+                    [261.63, 0.15], [329.63, 0.15], [392.00, 0.15], [523.25, 0.3],
+                    [392.00, 0.15], [523.25, 0.4],
+                    [349.23, 0.15], [440.00, 0.15], [523.25, 0.3],
+                    [392.00, 0.15], [329.63, 0.15], [261.63, 0.4]
+                ];
+
+                for (let loop = 0; loop < 4; loop++) {
+                    let noteDelay = 0;
+                    melody.forEach(([freq, duration]) => {
+                        const osc = audioCtx.createOscillator();
+                        const gainNode = audioCtx.createGain();
+                        
+                        osc.connect(gainNode);
+                        gainNode.connect(audioCtx.destination);
+                        
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, startTime + noteDelay);
+                        
+                        gainNode.gain.setValueAtTime(0.15, startTime + noteDelay);
+                        gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + noteDelay + duration);
+                        
+                        osc.start(startTime + noteDelay);
+                        osc.stop(startTime + noteDelay + duration);
+                        
+                        noteDelay += duration + 0.05;
+                    });
+                    startTime += noteDelay;
+                }
+            } catch (error) {
+                console.log("Audio failed:", error);
+            }
+        }
+
+        function startContinuousConfetti() {
+            const colors = ['#f2d74e', '#95c3de', '#b963ff', '#ff9a9e', '#57cc99'];
+            const spawnTimer = setInterval(() => {
+                if (!isCelebrating) {
+                    clearInterval(spawnTimer);
+                    return;
+                }
+
+                const confetti = document.createElement('div');
+                confetti.style.width = Math.random() * 8 + 6 + 'px';
+                confetti.style.height = Math.random() * 8 + 12 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-5vh';
+                confetti.style.borderRadius = '2px';
+                confetti.style.opacity = Math.random();
+                confetti.style.zIndex = '999';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                document.body.appendChild(confetti);
+
+                const speed = Math.random() * 2 + 2;
+                let currentTop = -5;
+                
+                const fallInterval = setInterval(() => {
+                    currentTop += speed;
+                    confetti.style.top = currentTop + 'vh';
+                    if (currentTop > 100) {
+                        clearInterval(fallInterval);
+                        confetti.remove();
+                    }
+                }, 20);
+            }, 150);
+
+            setTimeout(() => {
+                isCelebrating = false;
+            }, 15000);
+        }
+
+        function sayYes() {
+            if (isCelebrating) return;
+            isCelebrating = true;
+
+            document.querySelector('.buttons').style.display = 'none';
+            document.querySelector('h1').style.display = 'none';
+            document.getElementById('iphone-pic').style.display = 'none'; // Hide image on success
+            document.getElementById('success').style.display = 'block';
+            
+            playLongCelebrationTune();
+            startContinuousConfetti();
+        }
+    </script>
+
+    <!-- Watermark to prove you built it -->
+    <div class="watermark">🛠️ Made by Sufiyan Rashid Khokhar</div>
+
+</body>
+</html>
